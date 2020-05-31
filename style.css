@@ -3,16 +3,104 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0%;
+    margin: 0px;
+    background-color: black;
+    background-image: url(background.jpg);
+    background-size: cover;
+}
+h1{
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 30px 0px 0px 0px;
+    color: white;
 }
 form{
-    background-color: red;
-    padding: 10px;
-    width: 75%;
+    background: linear-gradient(to right, rgb(125, 193, 233), rgb(166, 226, 166));
+    padding: 1em 2em 2em 2em;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
 }
-
 input{
-    width: 90%;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5em;
 }
 .formInput{
-    margin: 15px;
+    margin: 2.5px 0px;
+    padding: 5px;
+    border: 1px solid none;
+    border-radius: 5px;
+}
+#registerBtn{
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
+    align-self: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+#registerBtn:disabled{
+    background-color: grey;
+}
+.feedback{
+    margin: 1px 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1em;
+    color: red;
+}
+label{
+    margin: 5px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 480px){
+    form{
+        width: 80%;
+        padding: 1em 0.5em;
+    }
+    input{
+        font-size: 1.0em;
+        height: 25px;
+    }
+    label{
+        font-size: 1.2em;
+    }
+    .formInput{
+        margin: 2.0px 0px;
+    }
+    h1{
+        font-size: 1.5em;
+    }
+
+}
+@media only screen and (min-width: 480px) and (max-width: 600px){
+    form{
+        width: 75%;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 768px){
+    form{
+        width: 70%
+    }
+}
+@media only screen and (min-width: 768px){
+    form{
+        width: 25em;
+    }
+}
+@media only screen and (min-width: 1024px){
+    form{
+        width: 25em;
+    }
 }

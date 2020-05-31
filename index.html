@@ -8,52 +8,49 @@
 </head>
 <body>
     <h1>Registration Form</h1>
-    <form method="GET" role="form" id="regForm">
+    <form action="" role="form" id="regForm">
 
         <div class="formInput">
-            <label for="displayName">Display Name</label><br>
-            <input type="text" name="displayName" id="displayName" placeholder="Enter valid name">
+            <label for="displayName" id="displayNameLabel">Display Name</label><br>
+            <input type="text" name="displayName" id="displayName" placeholder="Enter valid name" value="">
             <p class="feedback"></p>
         </div>
 
         <div class="formInput">
-            <label for="email">Email</label><br>
+            <label for="email" id="emailLabel">Email</label><br>
             <input type="email" name="email" id="email" placeholder="Enter valid email address">
             <p class="feedback"></p>
 
         </div>
 
         <div class="formInput">
-            <label for="mobileNumber">Mobile Number</label><br>
-            <input type="number" name="mobileNumber" id="mobileNumber" placeholder="Enter valid mobile number">
+            <label for="mobileNumber" id="mobileNumberLabel">Mobile Number</label><br>
+            <input type="text" name="mobileNumber" id="mobileNumber" placeholder="Enter valid mobile number">
             <p class="feedback"></p>
 
         </div>
         
         <div class="formInput">
-            <label for="username">Username</label><br>
+            <label for="username" id="usernameLabel">Username</label><br>
             <input type="text" name="username" id="username" placeholder="Enter valid name">
             <p class="feedback"></p>
 
         </div>
 
         <div class="formInput">
-            <label for="password">Password</label><br>
+            <label for="password" id="passwordLabel">Password</label><br>
             <input type="password" name="password" id="password" placeholder="Provide your password">
             <p class="feedback"></p>
 
         </div>        
 
         <div class="formInput">
-            <label for="confirmPassword">Confirm Password</label><br>
+            <label for="confirmPassword" id="confirmPasswordLabel">Confirm Password</label><br>
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Type the password again">
             <p class="feedback"></p>
-
         </div>    
 
         <button  id='registerBtn'>Register</button>
-
-        
         
     </form>
 <script src="script.js"></script>

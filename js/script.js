@@ -3,6 +3,8 @@ let input = document.querySelectorAll('.formInput input')
 let feedback = document.querySelectorAll('.feedback');
 let labels = document.querySelectorAll('label');
 
+let regSuccess = document.querySelector('#regSuccess');
+
 let displayName = document.querySelector('#displayName');
 let displayNameFeedback = document.querySelector('#displayName + p');
 let displayNameLabel = document.querySelector('#displayNameLabel')
@@ -47,6 +49,7 @@ let inputCheck = ()=>{
  }
 }
 let clearFeedback =(element)=>{
+    // regSuccess.innerText = ''
     element.innerText = ``
 }
 let addFeedback = (element, message)=>{
@@ -59,7 +62,9 @@ let passwordCheck =()=>{
         return false;
     }
     else{
-        clearFeedback(confirmPasswordFeedback)
+        clearFeedback(confirmPasswordFeedback);
+        clearFeedback(regSuccess);
+
         registerBtn.disabled = false;
         return true;
     }
@@ -78,6 +83,8 @@ let validityCheck =(input, label, feedback, regex, regFeedback)=>{
 }
 displayName.addEventListener('input', ()=>{
     clearFeedback(displayNameFeedback);
+    clearFeedback(regSuccess);
+
     if(displayName.value === ''){
         displayNameFeedback.textContent = `${displayNameLabel.textContent} cannot be blank`;
         registerBtn.disabled = true;
@@ -101,6 +108,8 @@ displayName.addEventListener('blur', ()=>{
 })
 email.addEventListener('input', ()=>{
     clearFeedback(emailFeedback);
+    clearFeedback(regSuccess);
+
     if(email.value === ''){
         emailFeedback.textContent = `${emailLabel.textContent} cannot be blank`
         registerBtn.disabled = true;
@@ -124,6 +133,8 @@ email.addEventListener('blur', ()=>{
 })
 mobileNumber.addEventListener('input', ()=>{
     clearFeedback(mobileNumberFeedback);
+    clearFeedback(regSuccess);
+
     if(mobileNumber.value === ''){
         mobileNumberFeedback.textContent = `${mobileNumberLabel.textContent} cannot be blank`;
         registerBtn.disabled = true;
@@ -147,6 +158,8 @@ mobileNumber.addEventListener('blur', ()=>{
 })
 username.addEventListener('input', ()=>{
     clearFeedback(usernameFeedback);
+    clearFeedback(regSuccess);
+
     if(username.value === ''){
         usernameFeedback.textContent = `${usernameLabel.textContent} cannot be blank`;
         registerBtn.disabled = true;
@@ -170,6 +183,8 @@ username.addEventListener('blur', ()=>{
 })
 password.addEventListener('input', ()=>{
     clearFeedback(passwordFeedBack);
+    clearFeedback(regSuccess);
+
     if(password.value === ''){
         passwordFeedBack.textContent = `${passwordLabel.textContent} cannot be blank`;
         registerBtn.disabled = true;
@@ -181,6 +196,7 @@ password.addEventListener('input', ()=>{
     }
 });
 password.addEventListener('blur', ()=>{
+    ;
     if(password.value === ''){
         passwordFeedBack.textContent = `${passwordLabel.textContent} cannot be blank`;
         registerBtn.disabled = true;
@@ -196,20 +212,25 @@ password.addEventListener('change', passwordCheck);
 
 confirmPassword.addEventListener('input', ()=>{
     clearFeedback(confirmPasswordFeedback);
+    clearFeedback(regSuccess);
+
 });
 confirmPassword.addEventListener('blur', ()=>{
         let regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gi;
         let regMessage = 'Password must contain minimum of six characters, at least one letter, one number and one special character'
         let check =  validityCheck(password, passwordLabel, passwordFeedBack, regex, regMessage)
-
+        
     if(!passwordCheck()){
         registerBtn.disabled = true;
+        
     }
     else if(passwordCheck() && !inputCheck()){
         registerBtn.disabled = true;
+        
     }
     else if(passwordCheck() && check){
         registerBtn.disabled = true;
+        
     }
     else{
         inputCheck();
@@ -221,9 +242,11 @@ registerBtn.addEventListener('click', (event)=>{
     event.preventDefault();
         if(inputCheck()){
             console.log('Registration Successful')
+            regSuccess.innerText = 'Registration Successful'
             // submit form function here
         }
         else{
             console.log('Registration unsuccessful')
+            
         }
 });
